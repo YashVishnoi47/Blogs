@@ -13,9 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
+        <body className="flex justify-between items-center">
           <Navbar />
-          <main className="w-full h-screen">{children}</main>
+          <main className="w-full h-screen ">{children}</main>
           <Footer />
         </body>
       </html>
