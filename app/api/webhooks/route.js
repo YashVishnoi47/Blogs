@@ -53,48 +53,48 @@ export async function POST(req) {
   const { id } = evt?.data;
   const eventType = evt?.type;
 
-  // if (eventType === "user.created" || eventType === "user.updated") {
-  //   const { id, first_name, last_name, image_url, email_addresses, username } =
-  //     evt?.data;
+  if (eventType === "user.created" || eventType === "user.updated") {
+    const { id, first_name, last_name, image_url, email_addresses, username } =
+      evt?.data;
 
-  //   try {
-  //     const user = await createOrUpdateUser(
-  //       id,
-  //       first_name,
-  //       last_name,
-  //       image_url,
-  //       email_addresses,
-  //       username
-  //     );
+    try {
+      const user = await createOrUpdateUser(
+        id,
+        first_name,
+        last_name,
+        image_url,
+        email_addresses,
+        username
+      );
 
-  //     if (user && eventType === "user.created") {
-  //       try {
-  //         await clerkClient.users.updateUserMetadata(id, {
-  //           publicMetadata: {
-  //             userMongoId: user._id,
-  //             isAdmin: user.isAdmin,
-  //           },
-  //         });
-  //       } catch (error) {
-  //         console.log("Error updating user MetaData:", error);
-  //         return new Response("Error Occured", { status: 400 });
-  //       }
-  //     }
-  //   } catch (error) {
-  //     console.log("Error creating and update user", error);
-  //     return new Response("Error Occured", { status: 400 });
-  //   }
-  // }
+      if (user && eventType === "user.created") {
+        try {
+          await clerkClient.users.updateUserMetadata(id, {
+            publicMetadata: {
+              userMongoId: user._id,
+              isAdmin: user.isAdmin,
+            },
+          });
+        } catch (error) {
+          console.log("Error updating user MetaData:", error);
+          return new Response("Error Occured", { status: 400 });
+        }
+      }
+    } catch (error) {
+      console.log("Error creating and update user", error);
+      return new Response("Error Occured", { status: 400 });
+    }
+  }
 
-  // if (eventType === "user.deleted") {
-  //   const { id } = evt?.data;
-  //   try {
-  //     await deleteUser(id);
-  //   } catch (error) {
-  //     console.log("Error Deleting User:", error);
-  //     return new Response("Error Occured", { status: 400 });
-  //   }
-  // }
+  if (eventType === "user.deleted") {
+    const { id } = evt?.data;
+    try {
+      await deleteUser(id);
+    } catch (error) {
+      console.log("Error Deleting User:", error);
+      return new Response("Error Occured", { status: 400 });
+    }
+  }
 
   return new Response("Webhook received", { status: 200 });
 }
