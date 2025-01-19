@@ -11,8 +11,7 @@ export default clerkMiddleware({
 
 export const config = {
   matcher: [
-    // Match all routes except internal Next.js files and static assets
     '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    '/(api|trpc)(.*)', // Always match API routes
+    '/(api|trpc)(.*)',
   ],
 };
