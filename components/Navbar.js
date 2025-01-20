@@ -23,28 +23,28 @@ const Navbar = () => {
             className="w-full h-12 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center"
             href={"/"}
           >
-            <Image src={"./home.svg"} width={30} height={30} alt="icon" />
+            {/* <Image src={"./home.svg"} width={30} height={30} alt="icon" /> */}
             Home
           </Link>
           <Link
             className="w-full h-12 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center"
             href={"/"}
           >
-            <Image src={"./home.svg"} width={30} height={30} alt="icon" />
+            {/* <Image src={"./home.svg"} width={30} height={30} alt="icon" /> */}
             Home
           </Link>
           <Link
             className="w-full h-12 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center"
             href={"/"}
           >
-            <Image src={"./home.svg"} width={30} height={30} alt="icon" />
+            {/* <Image src={"./home.svg"} width={30} height={30} alt="icon" /> */}
             Home
           </Link>
           <Link
             className="w-full h-12 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center"
             href={"/"}
           >
-            <Image src={"./home.svg"} width={30} height={30} alt="icon" />
+            {/* <Image src={"./home.svg"} width={30} height={30} alt="icon" /> */}
             Home
           </Link>
         </div>
