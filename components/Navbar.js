@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button"
 import {
   Sheet,
   SheetClose,
@@ -21,7 +20,6 @@ import {
   SignOutButton,
 } from "@clerk/nextjs";
 
-
 const Navbar = () => {
   return (
     <div className="nav w-[80%] h-24  px-4 py-2 flex justify-center items-center">
@@ -34,7 +32,7 @@ const Navbar = () => {
 
             <SheetContent
               side="left"
-              className="flex flex-col justify-center items-center w-[300px]"
+              className="flex flex-col justify-center items-center sm:w-[300px]"
             >
               <Link className="flex justify-center items-center" href="/">
                 <h1 className="font-semibold text-3xl">Blog</h1>
@@ -58,11 +56,17 @@ const Navbar = () => {
                   </Link>
                   <Link
                     className="py-2 w-full px-2 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center"
-                    href={"/"}
+                    href={"/dashboard/createpost"}
                   >
-                    About
+                    <Image
+                      src={"./add.svg"}
+                      width={30}
+                      height={30}
+                      alt="icon"
+                    />
+                    Create Post
                   </Link>
-                  <Link
+                  {/* <Link
                     className="py-2 w-full px-2 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center"
                     href={"/"}
                   >
@@ -73,19 +77,18 @@ const Navbar = () => {
                     href={"/"}
                   >
                     Home
-                  </Link>
+                  </Link> */}
                 </div>
 
                 <div className="w-full h-1/2 flex flex-col gap-2 justify-end items-start">
                   <SignedIn>
-
-                    
-                    <Image src="./logout.svg" width={30} height={30} alt="logout"/>
-                    <SignOutButton className="py-2 w-full px-2 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center"/> 
-
-                    
-
-                    
+                    <Image
+                      src="./logout.svg"
+                      width={30}
+                      height={30}
+                      alt="logout"
+                    />
+                    <SignOutButton className="py-2 w-full px-2 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center" />
                   </SignedIn>
                 </div>
               </div>
