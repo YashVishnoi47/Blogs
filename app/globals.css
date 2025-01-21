@@ -2,10 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* *{
-    background-color: black;
-    color: white;
-} */
+@media (max-width: 750px) {
+ .nav{
+  width: 100%;
+ }
+}
 
 @layer base {
   :root {

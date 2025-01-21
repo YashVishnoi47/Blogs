@@ -24,7 +24,7 @@ import {
 
 const Navbar = () => {
   return (
-    <div className="w-[80%] h-24  px-4 py-2 flex justify-center items-center">
+    <div className="nav w-[80%] h-24  px-4 py-2 flex justify-center items-center">
       <div className="left w-1/2 flex  justify-start  items-center gap-6 h-full ">
         <div className="logo  flex justify-start items-center h-full">
           <Sheet>
