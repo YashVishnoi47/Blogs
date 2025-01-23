@@ -26,7 +26,7 @@ const Navbar = () => {
       <div className="navbg  w-full h-full absolute"></div>
 
       {/* Left side of the Navbar */}
-      <div className="left  w-[40%]  flex justify-start  items-center  h-full ">
+      <div className="navleft  w-[40%] flex justify-start  items-center  h-full ">
         <div className="logo  flex justify-start items-center h-full">
           <Sheet>
             <SheetTrigger className="hover:bg-gray-100 flex-shrink-0 px-3 py-3 rounded-xl transition-all duration-200 ease-in-out relative z-10">
@@ -105,7 +105,7 @@ const Navbar = () => {
       </div>
 
       {/* Right Side of the navbar */}
-      <div className="right  w-[40%]  h-full flex justify-end items-center gap-4  ">
+      <div className="navright relative z-8  w-[40%] h-full flex justify-end items-center gap-4  ">
         <div className="flex gap-4">
           <SignedOut>
             <SignInButton className="cursor-pointer transition-all bg-gray-200 text-black px-6 py-2 rounded-lg border-black border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"></SignInButton>

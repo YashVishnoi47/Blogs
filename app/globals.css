@@ -6,6 +6,9 @@
   .nav {
     width: 100%;
   }
+  .navright,.navleft{
+    width: 50%;
+  }
 }
 
 
