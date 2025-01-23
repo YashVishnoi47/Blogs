@@ -9,7 +9,7 @@ export default async function Home() {
   try {
     const result = await fetch(process.env.URL + "/api/post/get", {
       method: "POST",
-      body: JSON.stringify({ limit: 9, order: "desc" }),
+      body: JSON.stringify({ limit: 3, order: "desc" }),
       cache: "no-store",
     });
     const data = await result.json();
@@ -18,8 +18,8 @@ export default async function Home() {
     console.log("Error getting post:", error);
   }
   return (
-    <div className=" select-none relative flex flex-col gap-6 justify-center items-center">
-      <div className="bg z-1 w-full h-full absolute border-2 border-black"></div>
+    <div className="select-none relative flex flex-col gap-6 justify-center items-center">
+      <div className="bg z-1 w-full h-full absolute "></div>
 
       {/* Hero Sections */}
     <div className="flex z-2 relative flex-col justify-start items-center  gap-6 p-28 px-3 h-[85vh] min-w-[100%] mx-auto ">
@@ -107,8 +107,8 @@ export default async function Home() {
       </div>
 
       {/* Posts  */}
-    <div className="p-3 z-2 relative flex flex-col  gap-8 py-7">
-        <RecentPosts limit={6} />
+    <div className="p-3 z-2 w-full relative flex flex-col gap-8 py-7">
+        <RecentPosts limit={3} />
         <Link
           href={"/search?category=null"}
           className="text-lg text-teal-500 hover:underline text-center"

@@ -101,7 +101,9 @@ export default function CreatePostPage() {
 
   if (isSignedIn && user.publicMetadata.isAdmin) {
     return (
-      <div className="p-3 max-w-3xl mx-auto min-h-screen">
+      <div className="w-full h-full relative">
+        <div className="bg z-1 w-full h-full absolute "></div>
+      <div className="p-3 max-w-3xl mx-auto relative min-h-screen">
         <h1 className="text-center text-3xl my-7 font-semibold">
           Create a post
         </h1>
@@ -179,6 +181,8 @@ export default function CreatePostPage() {
             Publish
           </Button>
         </form>
+      </div>
+
       </div>
     );
   } else {

@@ -37,8 +37,8 @@ const Navbar = () => {
               side="left"
               className="flex flex-col justify-center items-center sm:w-[300px]"
             >
-              <Link className="flex justify-center items-center" href="/">
-                <h1 className="font-semibold text-3xl">Blog</h1>
+              <Link className="flex justify-center relative z-10 items-center" href="/">
+                <h1 className="font-semibold  text-3xl">Yash's Blog</h1>
               </Link>
 
               <SheetTitle></SheetTitle>
@@ -98,8 +98,8 @@ const Navbar = () => {
             </SheetContent>
           </Sheet>
 
-          <Link href="/">
-            <h1 className="font-semibold text-3xl">Blog</h1>
+          <Link className="relative z-10" href="/">
+            <h1 className="font-semibold  text-3xl">Blog</h1>
           </Link>
         </div>
       </div>
