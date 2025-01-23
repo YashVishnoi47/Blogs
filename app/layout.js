@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <body className="flex flex-col justify-center items-center">
           <Navbar />
           <main className="w-full h-screen ">{children}</main>
-          <Footer />
+          {/* <Footer /> */}
         </body>
       </html>
     </ClerkProvider>

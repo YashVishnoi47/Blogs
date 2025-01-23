@@ -22,11 +22,14 @@ import {
 
 const Navbar = () => {
   return (
-    <div className="nav w-[80%] h-24  px-4 py-2 flex justify-center items-center">
-      <div className="left w-1/2 flex  justify-start  items-center gap-6 h-full ">
+    <div className="nav relative z-10 w-[100%] h-20  px-4 py-2 flex justify-center items-center">
+      <div className="navbg  w-full h-full absolute"></div>
+
+      {/* Left side of the Navbar */}
+      <div className="left  w-[40%]  flex justify-start  items-center  h-full ">
         <div className="logo  flex justify-start items-center h-full">
           <Sheet>
-            <SheetTrigger className="hover:bg-gray-100 px-3 py-3 rounded-xl transition-all duration-200 ease-in-out">
+            <SheetTrigger className="hover:bg-gray-100 flex-shrink-0 px-3 py-3 rounded-xl transition-all duration-200 ease-in-out relative z-10">
               <Image src="./menu.svg" width={25} height={25} alt="menu" />
             </SheetTrigger>
 
@@ -39,7 +42,7 @@ const Navbar = () => {
               </Link>
 
               <SheetTitle></SheetTitle>
-
+              {/* Links  */}
               <div className="links flex flex-col gap-2 w-full h-full">
                 <div className="w-full h-1/2 flex flex-col gap-2 justify-start items-start">
                   <Link
@@ -101,7 +104,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="right h-full flex justify-end items-center gap-4 w-1/2 ">
+      {/* Right Side of the navbar */}
+      <div className="right  w-[40%]  h-full flex justify-end items-center gap-4  ">
         <div className="flex gap-4">
           <SignedOut>
             <SignInButton className="cursor-pointer transition-all bg-gray-200 text-black px-6 py-2 rounded-lg border-black border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"></SignInButton>
