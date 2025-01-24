@@ -1,11 +1,11 @@
 import Post from "../../../../lib/models/post.model.js";
-import { connect } from "../../../../lib/mongodb/mongoose.js";
+import { connectDB } from "@/lib/mongodb/mongoose.js";
 import { currentUser } from "@clerk/nextjs/server";
 
 export const PUT = async (req) => {
   const user = await currentUser();
   try {
-    await connect();
+    await connectDB();
     const data = await req.json();
 
     if (
