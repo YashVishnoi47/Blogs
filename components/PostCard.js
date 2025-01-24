@@ -3,7 +3,6 @@ import Image from "next/image";
 export default function PostCard({ post }) {
   return (
     <div className="group relative justify-between flex w-full rounded-xl border border-black hover:border-2 h-[350px] overflow-hidden hover:rounded-3xl transition-all">
-
       <div className="w-[40%]">
         <Link className="w-full" href={`/post/${post.slug}`}>
           <Image

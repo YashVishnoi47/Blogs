@@ -37,7 +37,7 @@ export default async function PostPage({ params }) {
         <Button
           className="relative z-10 px-3 py-2 hover:scale-105 hover:bg-black active:scale-95 transition-all duration-100 ease-in-out "
           color="gray"
-          pill
+          
           size="xs"
         >
           {post && post.category}

@@ -22,8 +22,8 @@ export default async function Home() {
       <div className="bg z-1 w-full h-full absolute "></div>
 
       {/* Hero Sections */}
-    <div className="flex z-2 relative flex-col justify-start items-center  gap-6 p-28 px-3 h-[85vh] min-w-[100%] mx-auto ">
-        <Image src="/profile.png" width={150} height={150} alt="profile"/>
+      <div className="flex z-2 relative flex-col justify-start items-center  gap-6 p-28 px-3 h-[85vh] min-w-[100%] mx-auto ">
+        <Image src="/profile.png" width={150} height={150} alt="profile" />
         <h1 className="text-3xl font-bold lg:text-6xl">
           <TypingAnimation />
         </h1>
@@ -107,7 +107,7 @@ export default async function Home() {
       </div>
 
       {/* Posts  */}
-    <div className="p-3 z-2 w-full relative flex flex-col gap-8 py-7">
+      <div className="p-3 z-2 w-full relative flex flex-col gap-8 py-7">
         <RecentPosts limit={3} />
         <Link
           href={"/search?category=null"}

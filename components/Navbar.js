@@ -1,4 +1,11 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
+import {
+  useParams,
+  usePathname,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -21,6 +28,29 @@ import {
 } from "@clerk/nextjs";
 
 const Navbar = () => {
+  const router = useRouter();
+  const path = usePathname;
+  const [searchTerm, setSearchTerm] = useState("");
+  const SearchParams = useSearchParams();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const urlParams = new URLSearchParams(SearchParams);
+    urlParams.set("searchTerm", searchTerm);
+    const searchQuery = urlParams.toString();
+    router.push(`/search?${searchQuery}`);
+  };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(SearchParams);
+    const searchTermFromUrl = urlParams.get("searchTerm");
+
+    if (searchTermFromUrl) {
+      setSearchTerm(searchTermFromUrl);
+      console.log(searchTermFromUrl);
+    }
+  }, [SearchParams]);
+
   return (
     <div className="nav relative z-10 w-[100%] h-20  px-4 py-2 flex justify-center items-center">
       <div className="navbg  w-full h-full absolute"></div>
@@ -37,7 +67,10 @@ const Navbar = () => {
               side="left"
               className="flex flex-col justify-center items-center sm:w-[300px]"
             >
-              <Link className="flex justify-center relative z-10 items-center" href="/">
+              <Link
+                className="flex justify-center relative z-10 items-center"
+                href="/"
+              >
                 <h1 className="font-semibold  text-3xl">Yash's Blog</h1>
               </Link>
 
@@ -59,6 +92,18 @@ const Navbar = () => {
                   </Link>
                   <Link
                     className="py-2 w-full px-2 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center"
+                    href={"/search"}
+                  >
+                    <Image
+                      src={"./search.svg"}
+                      width={30}
+                      height={30}
+                      alt="icon"
+                    />
+                    Search
+                  </Link>
+                  <Link
+                    className="py-2 w-full px-2 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center"
                     href={"/dashboard/createpost"}
                   >
                     <Image
@@ -69,13 +114,7 @@ const Navbar = () => {
                     />
                     Create Post
                   </Link>
-                  {/* <Link
-                    className="py-2 w-full px-2 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center"
-                    href={"/"}
-                  >
-                    Home
-                  </Link>
-                  <Link
+                  {/*  <Link
                     className="py-2 w-full px-2 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center"
                     href={"/"}
                   >
@@ -97,19 +136,39 @@ const Navbar = () => {
               </div>
             </SheetContent>
           </Sheet>
-
           <Link className="relative z-10" href="/">
-            <h1 className="font-semibold  text-3xl">Blog</h1>
+            <h1 className="font-semibold  text-3xl">Yash's Blog</h1>
           </Link>
         </div>
       </div>
 
       {/* Right Side of the navbar */}
-      <div className="navright relative z-8  w-[40%] h-full flex justify-end items-center gap-4  ">
+      <div className="navright relative z-8 w-[40%] h-full flex justify-end items-center gap-4  ">
+        {/* Search Form  */}
+        <form
+          onSubmit={handleSubmit}
+          className="search  flex justify-center items-center  min-w-[80%] h-full"
+        >
+          <input
+            className="min-w-[80%] flex-shrink-0 text-md h-[70%] border-2 rounded-3xl p-4"
+            placeholder="Search..."
+            type="search"
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+            }}
+            name=""
+            id=""
+          />
+          <button></button>
+        </form>
+
+        {/* sign in and Profile btn */}
         <div className="flex gap-4">
           <SignedOut>
-            <SignInButton className="cursor-pointer transition-all bg-gray-200 text-black px-6 py-2 rounded-lg border-black border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"></SignInButton>
+            <SignInButton className=" flex-shrink-0 cursor-pointer transition-all bg-gray-200 text-black px-6 py-2 rounded-lg border-black border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"></SignInButton>
           </SignedOut>
+
           <SignedIn>
             <UserButton></UserButton>
           </SignedIn>
