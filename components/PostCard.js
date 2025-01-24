@@ -8,11 +8,11 @@ export default function PostCard({ post }) {
       <div className="w-[40%] p-4 relative overflow-hidden">
         <Link href={`/post/${post.slug}`}>
           <Image
-            src="/nextpic.jpeg"
+            src="/image.png"
             alt="post cover"
-            className="h-full w-full object-cover transition-transform duration-300 rounded-lg"
-            width={100}
-            height={100}
+            className=" object-cover transition-transform duration-300 rounded-lg"
+            width={200}
+            height={200}
           />
         </Link>
       </div>
