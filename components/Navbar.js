@@ -145,7 +145,7 @@ const Navbar = () => {
       {/* Right Side of the navbar */}
       <div className="navright relative z-8 w-[40%] h-full flex justify-end items-center gap-4  ">
         {/* Search Form  */}
-        <form
+        {/* <form
           onSubmit={handleSubmit}
           className="search  flex justify-center items-center  min-w-[80%] h-full"
         >
@@ -161,7 +161,7 @@ const Navbar = () => {
             id=""
           />
           <button></button>
-        </form>
+        </form> */}
 
         {/* sign in and Profile btn */}
         <div className="flex gap-4">
@@ -170,7 +170,7 @@ const Navbar = () => {
           </SignedOut>
 
           <SignedIn>
-            <UserButton></UserButton>
+            <UserButton userProfileUrl="/dashboard?tab=profile"></UserButton>
           </SignedIn>
         </div>
       </div>

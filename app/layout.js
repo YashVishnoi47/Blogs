@@ -13,10 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="flex flex-col justify-center items-center">
+        <body className="flex h-full flex-col ">
           <Navbar />
-          <main className="w-full h-screen ">{children}</main>
-          {/* <Footer /> */}
+          <main className="flex-grow w-full ">{children}</main>
+          <Footer />
         </body>
       </html>
     </ClerkProvider>

@@ -1,33 +1,43 @@
 import Link from "next/link";
 import Image from "next/image";
+
 export default function PostCard({ post }) {
   return (
-    <div className="group relative justify-between flex w-full rounded-xl border border-black hover:border-2 h-[350px] overflow-hidden hover:rounded-3xl transition-all">
-      <div className="w-[40%]">
-        <Link className="w-full" href={`/post/${post.slug}`}>
+    <div className="group relative flex w-full rounded-lg border border-gray-300 bg-white shadow-lg overflow-hidden hover:shadow-xl hover:scale-[1.01] transition-all duration-300 dark:border-gray-700 dark:bg-gray-800">
+      {/* Image Section */}
+      <div className="w-[40%] p-4 relative overflow-hidden">
+        <Link href={`/post/${post.slug}`}>
           <Image
             src="/nextpic.jpeg"
             alt="post cover"
-            className="h-full border-2 border-black w-full object-cover transition-all duration-300 z-20"
+            className="h-full w-full object-cover transition-transform duration-300 rounded-lg"
             width={100}
             height={100}
           />
         </Link>
       </div>
-      <Link
-        className="p-3 flex  relative flex-col w-[58%] gap-2"
-        href={`/post/${post.slug}`}
-      >
-        <p className=" font-bold text-4xl line-clamp-2">{post.title}</p>
-        <span className="italic text-md font-semibold">{post.category}</span>
-        {/* <span className="italic text-sm" dangerouslySetInnerHTML={{ __html: post?.content }}></span> */}
 
-        {/* <Link
-          href={`/post/${post.slug}`}
-          className="z-10 group-hover:bottom-0 absolute w-full bottom-[-200px] right-0 border border-black text-black rounded-3xl hover:-translate-y-1 transition-all duration-300 text-center py-2 m-2"
-        >
-          Read article
-        </Link> */}
+      {/* Content Section */}
+      <Link
+        href={`/post/${post.slug}`}
+        className="p-4 flex flex-col justify-between w-[60%] gap-2"
+      >
+        {/* Post Title */}
+        <p className="font-bold text-lg text-gray-900 dark:text-gray-100 line-clamp-2 group-hover:text-teal-500 transition-all duration-300">
+          {post.title}
+        </p>
+
+        {/* Post Category */}
+        <span className="italic text-sm font-medium text-gray-500 dark:text-gray-400">
+          {post.category}
+        </span>
+
+        {/* Read More Button */}
+        <div className="mt-4">
+          <span className="inline-block py-2 px-4 text-center text-sm font-semibold text-white bg-teal-500 rounded-full shadow-md hover:bg-teal-600 hover:shadow-lg transition-all duration-300">
+            Read More
+          </span>
+        </div>
       </Link>
     </div>
   );

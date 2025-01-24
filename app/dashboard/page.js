@@ -1,11 +1,37 @@
-import React from 'react'
+"use client";
 
-const dashboard = () => {
+import { useEffect, useState } from "react";
+import DashProfile from "@/components/DashProfile";
+import DashSidebar from "@/components/DashSidebar";
+import { useSearchParams } from "next/navigation";
+import DashPosts from "@/components/DashPosts";
+import DashUsers from "@/components/DashUsers";
+// import DashboardComp from "@/components/DashboardComp";
+export default function Dashboard() {
+  const searchParams = useSearchParams();
+  const [tab, setTab] = useState("");
+  useEffect(() => {
+    const urlParams = new URLSearchParams(searchParams);
+    const tabFromUrl = urlParams.get("tab");
+    if (tabFromUrl) {
+      setTab(tabFromUrl);
+    }
+  }, [searchParams]);
+
+
   return (
-    <div>
-      dashboard
-    </div>
-  )
-}
+    <div className="min-h-full w-full flex flex-col md:flex-row">
+      <div className="md:w-56">
+        {/* Sidebar */}
+        <DashSidebar />
+      </div>
+      {/* profile... */}
+      {tab === "profile" && <DashProfile />}
 
-export default dashboard
+      {tab === "posts" && <DashPosts />}
+
+      {tab === "users" && <DashUsers />}
+      {/* {tab === "dash" && <DashboardComp />} */}
+    </div>
+  );
+}
