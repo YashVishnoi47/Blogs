@@ -18,7 +18,7 @@ const Footer = () => {
             <span className="font-bold text-lg">Yash's Blog</span>
           </div>
           {/* Created and Developed By */}
-          <p className="text-sm">Created and Developed by Yash Bishnoi</p>
+          <p className="text-sm">2025</p>
           {/* Social Media Links */}
           <div className="flex space-x-4 mt-2">
             <a
