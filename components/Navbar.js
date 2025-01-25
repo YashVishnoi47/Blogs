@@ -27,6 +27,8 @@ import {
   SignOutButton,
 } from "@clerk/nextjs";
 
+
+
 const Navbar = () => {
   const router = useRouter();
   const path = usePathname;
@@ -114,28 +116,17 @@ const Navbar = () => {
                     />
                     Create Post
                   </Link>
-                  {/*  <Link
-                    className="py-2 w-full px-2 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center"
-                    href={"/"}
-                  >
-                    Home
-                  </Link> */}
                 </div>
 
                 <div className="w-full h-1/2 flex flex-col gap-2 justify-end items-start">
                   <SignedIn>
-                    <Image
-                      src="./logout.svg"
-                      width={30}
-                      height={30}
-                      alt="logout"
-                    />
                     <SignOutButton className="py-2 w-full px-2 gap-2 hover:bg-gray-100 rounded-xl transition-all duration-200 ease-in-out  border-red-800 flex justify-start p-4 items-center" />
                   </SignedIn>
                 </div>
               </div>
             </SheetContent>
           </Sheet>
+
           <Link className="relative z-10" href="/">
             <h1 className="font-semibold  text-3xl">Yash's Blog</h1>
           </Link>

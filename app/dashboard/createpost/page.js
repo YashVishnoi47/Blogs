@@ -103,40 +103,42 @@ export default function CreatePostPage() {
     return (
       <div className="w-full h-full relative">
         <div className="bg z-1 w-full h-full absolute "></div>
-      <div className="p-3 max-w-3xl mx-auto relative min-h-screen">
-        <h1 className="text-center text-3xl my-7 font-semibold">
-          Create a post
-        </h1>
-        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-          <div className="flex flex-col gap-4 sm:flex-row justify-between">
-            <TextInput
-              type="text"
-              placeholder="Title"
-              required
-              id="title"
-              className="flex-1"
-              onChange={(e) =>
-                setFormData({ ...formData, title: e.target.value })
-              }
-            />
-            <Select
-              onChange={(e) =>
-                setFormData({ ...formData, category: e.target.value })
-              }
-            >
-              <option value="uncategorized">Select a category</option>
-              <option value="javascript">JavaScript</option>
-              <option value="reactjs">React.js</option>
-              <option value="nextjs">Next.js</option>
-            </Select>
-          </div>
-          <div className="flex gap-4 items-center justify-between border-2 border-teal-500 p-3">
+        <div className="p-3 max-w-3xl mx-auto relative min-h-screen">
+          <h1 className="text-center text-3xl my-7 font-semibold">
+            Create a post
+          </h1>
+          {/* Post Form */}
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+            <div className="flex flex-col gap-4 sm:flex-row justify-between">
+              <input
+                type="text"
+                placeholder="Title"
+                required
+                id="title"
+                className="flex-1 py-2 px-4  text-md rounded-2xl"
+                onChange={(e) =>
+                  setFormData({ ...formData, title: e.target.value })
+                }
+              />
+              <Select
+                onChange={(e) =>
+                  setFormData({ ...formData, category: e.target.value })
+                }
+              >
+                <option value="uncategorized">Select a category</option>
+                <option value="javascript">JavaScript</option>
+                <option value="reactjs">React.js</option>
+                <option value="nextjs">Next.js</option>
+                <option value="Other">Other</option>
+              </Select>
+            </div>
+            {/* <div className="flex gap-4 items-center justify-between border-2 border-teal-500 p-3">
             <FileInput
               type="file"
               accept="image/*"
               onChange={(e) => setFile(e.target.files[0])}
             />
-            {/* <Button
+            <Button
               type='button'
               gradientDuoTone='purpleToBlue'
               size='sm'
@@ -154,10 +156,10 @@ export default function CreatePostPage() {
               ) : (
                 'Upload Image'
               )}
-            </Button> */}
-          </div>
+            </Button>
+          </div> */}
 
-          {/* {imageUploadError && (
+            {/* {imageUploadError && (
             <Alert color='failure'>{imageUploadError}</Alert>
           )}
           {formData.image && (
@@ -168,21 +170,23 @@ export default function CreatePostPage() {
             />
           )} */}
 
-          <ReactQuill
-            theme="snow"
-            placeholder="Write something..."
-            className="h-72 mb-12"
-            required
-            onChange={(value) => {
-              setFormData({ ...formData, content: value });
-            }}
-          />
-          <Button type="submit" gradientDuoTone="purpleToPink">
-            Publish
-          </Button>
-        </form>
-      </div>
-
+            <ReactQuill
+              theme="snow"
+              placeholder="Write something..."
+              className="h-72 mb-12"
+              required
+              onChange={(value) => {
+                setFormData({ ...formData, content: value });
+              }}
+            />
+            <Button
+              type="submit"
+              className="border-2 border-black text-black hover:bg-slate-50"
+            >
+              Publish
+            </Button>
+          </form>
+        </div>
       </div>
     );
   } else {
